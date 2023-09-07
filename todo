@@ -1,0 +1,14 @@
+ git config --global user.name "Boli2Eliel"
+ git config --global user.email "popaulnzongo@gmail.com"
+ git config --global push.default matching
+ git config --global alias.co checkout
+ git init
+ git add .
+ git commit -am 'Initial Commit'
+
+---> LOGIN TO GITHUB
+ Create a ne repository
+    ---> push an existing repository from the command line
+            git remote add origin https://github.com/Boli2Eliel/Django-CRM.git
+            git branch -M main
+            git push -u origin main

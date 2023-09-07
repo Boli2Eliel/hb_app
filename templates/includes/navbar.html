@@ -1,0 +1,112 @@
+<!-- Navbar-->
+{% load static %}
+
+<nav class="navbar navbar-expand-lg " style="background-color: rgba(205, 102, 18, 0.5);">
+  <div class="container">
+    <a class="navbar-brand text-white"  href="{% url 'records:home' %}">
+      <img src="{% static 'img/Logo_AMC.png' %}" alt="Healthy Baobab" style="width: 180px; margin-bottom:8px; margin-right:18px;" />
+  </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+      {% if user.is_authenticated %}
+        
+        <li class="nav-item ">
+          <a class="nav-link" href="{% url 'records:products_list' %}" style="margin-right: 25px;" title="List of products"><i class="zmdi zmdi-view-dashboard zmdi-hc-fw" title="List of products"></i> Records</a>
+        </li>
+
+        <li class="nav-item ">
+          <a class="nav-link" href="#" style="margin-right: 25px;" title="Your orders"><i class="zmdi zmdi-assignment zmdi-hc-fw" title="Your orders"></i> Commandes</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link text-white"  href="#"><i class="fas fa-users "></i><span
+                  class="sr-only"></span></a>
+        </li>
+      
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <!-- ========== Profil Notifications Dropdown Menu ========== -->
+          <li class="nav-item dropdown">
+
+            <a class="nav-link " data-toggle="dropdown" href="#"><img src="{{user.profile.profile_image.url}}" href="#" class=" elevation-2 rounded" alt="User Image" style="width:28px; border: 2px solid white;"> {{user.username}}</a>
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <span class="dropdown-item dropdown-header">Mon Profil</span>
+              <div class="dropdown-divider"></div>
+
+              <a href="#" class="dropdown-item">
+                <i class="fa fa-user text-primary" ></i><span> Voir mon profil</span> 
+                <!--span class="float-right text-muted text-sm">3 mins</!--span-->
+              </a>
+
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <i class="fa fa-key mr-2 text-success"></i> Mot de passe
+                <!--span class="float-right text-muted text-sm">12 hours</!--span-->
+              </a>
+
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModal">
+                <i class="fas fa-power-off text-danger"></i>&nbsp;Deconnexion&nbsp;
+              </a>
+
+            </div>  
+          </li>
+
+          
+        <!-- ========== End Notifications Dropdown Menu ========== -->
+      </ul> 
+
+      {% else %}
+      <ul class="navbar-nav ml-auto">       
+        
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+      </ul>        
+      {% endif %}
+      
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+<!-- ====== Modal ====== -->
+<div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="background-color: rgba(249, 246, 246, 0.1);">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-power-off text-danger"></i>&nbsp;&nbsp;Deconnexion</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body text-center">
+      <span class="text-danger"><i class="fa fa-power-off fa-3x mt-2"></i></span>
+      <div style="height:50px;" class="mt-2">Etes-vous sûr de vouloir quitter le système ?</div>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Annuler</button>
+      <a  href="#" type="button" class="btn btn-outline-danger btn-sm">Confirmer</a>
+      </div>
+  </div>
+  </div>
+</div>
+<!--End Modal-->
+
+
+
