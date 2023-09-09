@@ -1,0 +1,57 @@
+<!-- Navbar-->
+{% load static %}
+
+<nav class="navbar navbar-expand-lg " style="background-color: rgba(205, 102, 18, 0.5);">
+  <div class="container">
+    <a class="navbar-brand text-white"  href="{% url 'records:home' %}">
+      <img src="{% static 'img/Logo_AMC.png' %}" alt="Healthy Baobab" style="width: 180px; margin-bottom:8px; margin-right:18px;" />
+  </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">  
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+      </ul>        
+      
+      
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+<!-- ====== Modal ====== -->
+<div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="background-color: rgba(249, 246, 246, 0.1);">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-power-off text-danger"></i>&nbsp;&nbsp;Deconnexion</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body text-center">
+      <span class="text-danger"><i class="fa fa-power-off fa-3x mt-2"></i></span>
+      <div style="height:50px;" class="mt-2">Etes-vous sûr de vouloir quitter le système ?</div>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Annuler</button>
+      <a  href="#" type="button" class="btn btn-outline-danger btn-sm">Confirmer</a>
+      </div>
+  </div>
+  </div>
+</div>
+<!--End Modal-->
+
+
+

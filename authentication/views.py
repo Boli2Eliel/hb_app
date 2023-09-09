@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 
-#from userprofile.forms import UserUpdateForm, UserUpdateSuiteForm
+from userprofile.forms import UserUpdateForm, UserUpdateSuiteForm
 from .forms import LoginForm, SignUpForm
 from .models import Account
 
@@ -26,8 +26,8 @@ def login_view(request):
             user = authenticate(email=email, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, "Bienvenue à prestcrm App!")
-                return redirect("dashboard")
+                messages.success(request, "Bienvenue à HBApp!")
+                return redirect("records:home")
             else:
                 msg = 'Informations erronées! Merci de vérifier et réessayer.'
         else:
@@ -36,6 +36,7 @@ def login_view(request):
     return render(request, "accounts/login.html", {"form": form, "msg": msg})
 
 
+@login_required()
 def register_user(request):
     msg = None
     success = False
@@ -50,7 +51,7 @@ def register_user(request):
 
             msg = 'Utilisateur créé avec succès!'
             success = True
-            return redirect("dashboard")
+            return redirect("accounts")
         else:
             msg = 'Formulaire non valide'
         return render(request, "accounts/register.html", {"form": form, "msg": msg, "success": success})
@@ -60,11 +61,11 @@ def register_user(request):
     return render(request, "accounts/register.html", {"form": form, "msg": msg, "success": success})
 
 
+@login_required()
 def users_list(request):
     accounts = Account.objects.all()
     return render(request, "accounts/accounts_list.html", {"accounts": accounts})
 
-"""
 
 @login_required()  # "LOGIN_URL = 'user-login'" # for decorators a été ajouté dans le settings
 def user_update(request, pk):
@@ -82,4 +83,3 @@ def user_update(request, pk):
         'user_form': user_form,
     }
     return render(request, 'accounts/account_update.html', context) 
-"""

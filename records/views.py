@@ -10,10 +10,12 @@ from records.models import Product
 
 
 # Create your views here.
+@login_required
 def home(request):
     return render(request, "home.html")
 
 
+@login_required
 def products_list(request):
     products = Product.objects.all()
     return render(request, "records/products.html", {"products": products})
@@ -34,7 +36,7 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
         self.object.save()
         return redirect(self.get_success_url())
 
-#@login_required
+@login_required
 def customer_product(request, pk):
     if request.user.is_authenticated:
         # Look Up Products
