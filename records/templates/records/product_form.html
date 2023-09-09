@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<section class="product_list bg-light py-4 px-3 rounded">
+
+  <div class="">
+    <h3 class="text-dark "><i class="zmdi zmdi-collection-plus zmdi-hc-fw"></i> Nouveau Produit</h3>
+    <hr>
+  </div>
+  <br>
+
+  <form method="POST" action="{% url 'records:add_product' %}">
+    {% csrf_token %}
+
+    {{ form | crispy }}
+
+  <br/>
+    <button type="submit" class="btn btn-success">Add Product</button>
+    <a href="{% url 'records:products_list' %}" class="btn btn-danger">Back</a>
+
+  </form>
+
+  </div>
+</section>
+
+{% endblock %}
+

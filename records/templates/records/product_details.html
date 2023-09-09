@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="product_list bg-light py-4 px-3 rounded">
+  <div>
+    <h3 class="text-gray-800"><i class="fas fa-stream text-primary"></i> Details Produit</h3>
+    <hr>  
+  </div>
+
+  <div class="card">
+
+    <div class="card-header">
+      <strong>{{ customer_product.name }}</strong>
+    </div>
+
+    <div class="card-body">
+      <p class="card-text">
+      <strong>Formule: </strong>{{ customer_product.formule }} <span class="btn btn-warning p-6 " style="font-size: 8px;" title="{{ customer_product.formule.description}}"> {{ customer_product.formule.description}}</span></p>
+
+      <p class="card-text">
+      <strong>Unité: </strong>{{ customer_product.uom }}
+      </p>
+
+      <p class="card-text">
+      <strong>Prix Unitaire: </strong>{{ customer_product.price_per_unit }} Fcfa</p>
+    </div>
+  </div>
+
+  <br/>
+  <a href="{% url 'records:products_list' %}" class="btn btn-secondary">Retour</a>
+
+  <a href="#" class="btn btn-danger">Supprimer</a>
+
+  <a href="#" class="btn btn-secondary">MàJ Prospect</a>
+		
+</section>
+{% endblock %}

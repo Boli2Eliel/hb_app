@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Thirds
-    #'crispy_forms',
-    #'crispy_bootstrap5',
+    'crispy_forms',
+    'crispy_bootstrap5',
     # My Apps
     'records',
     'authentication',
@@ -63,6 +63,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'hb_app.urls'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 TEMPLATES = [
     {

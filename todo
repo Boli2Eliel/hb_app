@@ -9,6 +9,6 @@
 ---> LOGIN TO GITHUB
  Create a ne repository
     ---> push an existing repository from the command line
-            git remote add origin https://github.com/Boli2Eliel/Django-CRM.git
+            git remote add origin https://github.com/Boli2Eliel/hb_app.git
             git branch -M main
             git push -u origin main
