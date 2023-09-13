@@ -10,16 +10,17 @@
     <main>
         <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
             <div class="container">
-                <p class="text-center">
-                    Healthy Baobab
+
+                <p class="text-center  mt-4">
+
+                    <img src="{% static 'img/HB_logo.png' %}"" alt="Healthy Baobab" style="width: 150px; margin-bottom:0px; margin-right:50px;" />
+
                 </p>
+
                 <div class="row justify-content-center form-bg-image" data-background-lg="{% static 'img/illustrations/signin.svg' %}">
                     <div class="col-6 d-flex align-items-center justify-content-center">
-                        <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
-                            <div class="text-center text-md-center mb-4 mt-md-0">
-                                <h1 class="mb-0 h3">
-                                    SIGN IN
-                                </h1>
+                        <div class="bg-white shadow border-0 rounded border-light p-0 p-lg-5 w-100 fmxw-500">
+                            <div class="text-center text-md-center mb-2">
                                 <br />
                                 <p>
                                     {% if msg %}
@@ -27,7 +28,9 @@
                                             {{ msg | safe }}
                                         </div>
                                     {% else %}
+                                    <div class="mt-0 py-1 bg-info rounded">
                                         Ajouter vos infos de connexion
+                                    </div>
                                     {% endif %}                                     
                                 </p> 
                             </div>
@@ -69,7 +72,7 @@
                                     </div>
                                 </div>
                                 <div class="d-grid">
-                                    <button type="submit" name="login" class="btn btn-gray-800">Connexion</button>
+                                    <button type="submit" name="login" class="btn btn-secondary">Connexion</button>
                                 </div>
                             </form>
                             <br />

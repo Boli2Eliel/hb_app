@@ -14,7 +14,7 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=120)
-    formule = models.ForeignKey(Formule, on_delete=models.CASCADE,related_name='products', verbose_name="Formule")
+    formule = models.ForeignKey(Formule, on_delete=models.SET_NULL, null=True, related_name='products', verbose_name="Formule")
     uom = models.ForeignKey("UOM", on_delete=models.CASCADE, related_name='products', verbose_name="Unité")
     price_per_unit = models.FloatField()
 

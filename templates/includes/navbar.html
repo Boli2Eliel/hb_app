@@ -1,10 +1,10 @@
 <!-- Navbar-->
 {% load static %}
 
-<nav class="navbar navbar-expand-lg " style="background-color: rgba(205, 102, 18, 0.5);">
+<nav class="navbar navbar-expand-lg  mb-5" style="background-color: rgba(205, 102, 18, 0.5);">
   <div class="container">
     <a class="navbar-brand text-white"  href="{% url 'records:home' %}">
-      <img src="{% static 'img/Logo_AMC.png' %}" alt="Healthy Baobab" style="width: 180px; margin-bottom:8px; margin-right:18px;" />
+      <img src="{% static 'img/HB_logo_Négatif.png' %}" alt="Healthy Baobab" style="width: 100px; margin-bottom:0px; margin-right:50px;" />
   </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +18,7 @@
       {% if user.is_authenticated %}
         
         <li class="nav-item ">
-          <a class="nav-link text-light" href="{% url 'records:products_list' %}" style="margin-right: 8px;" title="List of products"><i class="zmdi zmdi-assignment zmdi-hc-fw text-primary " title="List of products"></i> Records</a>
+          <a class="nav-link text-light" href="{% url 'records:records' %}" style="margin-right: 8px;" title="List of products"><i class="zmdi zmdi-assignment zmdi-hc-fw text-primary" title="List of products"></i> Records</a>
         </li>
 
         <li class="nav-item ">
@@ -36,20 +36,20 @@
         <!-- ========== Profil Notifications Dropdown Menu ========== -->
         <li class="nav-item dropdown">
 
-          <a class="nav-link " data-toggle="dropdown" href="#"><img src="{{user.profile.profile_image.url}}" href="#" class=" elevation-2 rounded" alt="User Image" style="width:28px; border: 2px solid white;"> {{user.username}}</a>
+          <a class="nav-link text-light" data-toggle="dropdown" href="#" title="Cliquer pour voir les sous options"><img src="{{user.profile.profile_image.url}}" href="#" class=" elevation-2 rounded" alt="User Image" style="width:28px; border: 2px solid white;"> {{user.username}}</a>
           </a>
 
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-item dropdown-header">Mon Profil</span>
             <div class="dropdown-divider"></div>
 
-            <a href="{% url 'user-profile-details'%}" class="dropdown-item">
-              <i class="fa fa-user text-primary" ></i><span> Voir mon profil</span> 
+            <a href="{% url 'user-profile-details'%}" class="dropdown-item" title="Voir mon Profil" >
+              <i class="fa fa-user text-primary" ></i><span> Mon profil</span> 
               <!--span class="float-right text-muted text-sm">3 mins</!--span-->
             </a>
 
             <div class="dropdown-divider"></div>
-            <a href="{% url 'password_change' %}" class="dropdown-item">
+            <a href="{% url 'password_change' %}" class="dropdown-item" title="Modifier/changer le mot de passe" >
               <i class="fa fa-key mr-2 text-success"></i> Mot de passe
               <!--span class="float-right text-muted text-sm">12 hours</!--span-->
             </a>
@@ -81,10 +81,6 @@
 
 
 
-
-
-
-
 <!-- ====== Modal ====== -->
 <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document" style="background-color: rgba(249, 246, 246, 0.1);">
@@ -101,12 +97,11 @@
       </div>
       <div class="modal-footer">
       <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Annuler</button>
-      <a  href="#" type="button" class="btn btn-outline-danger btn-sm">Confirmer</a>
+      <a  href="{% url 'logout' %}" type="button" class="btn btn-outline-danger btn-sm">Confirmer</a>
       </div>
   </div>
   </div>
 </div>
 <!--End Modal-->
-
 
 

@@ -26,11 +26,41 @@
   </div>
 
   <br/>
-  <a href="{% url 'records:products_list' %}" class="btn btn-secondary">Retour</a>
+  <a href="{% url 'records:products_list' %}" class="btn btn-secondary" style="margin-right: 15px;">Retour</a>
 
-  <a href="#" class="btn btn-danger">Supprimer</a>
+  <a href="{% url 'records:update_product' customer_product.id %}" class="btn btn-primary" style="margin-right: 15px;"  >Modifier</a>
 
-  <a href="#" class="btn btn-secondary">MàJ Prospect</a>
+  <a class="btn btn-danger btn-sm ml-1" href="#"><i class="fas fa-trash-alt" data-toggle="modal" data-target="#deleteModal" title=""></i></a>
+
+
+  <!-- #1.DELETE  -->                                			                                     
+			<!-- Button trigger modal -->
+				<!-- Modal -->
+						<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                  <h5 class="modal-title" id="deleteModalLabel"><i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Suppression</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  
+                  </button>
+                  </div>
+                  <div class="modal-body text-center">
+                      <span class="text-danger"><i class="fas fa-trash-alt fa-3x mt-2"></i></span>
+                      <div style="height:50px;" class="mt-2"><b>Etes-vous sûr de vouloir supprimer le produit "{{customer_product.name}}" ?</b></div>
+                  </div>
+                  <div class="modal-footer">
+                  
+                  <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Annuler</button>
+                  <a  href="{% url 'records:delete_product' customer_product.id %}" type="button" class="btn btn-outline-danger btn-sm">Confirmer</a>
+                  
+                  </div>
+                </div>
+							</div>
+							
+						</div>
+	<!-- #ENDDELETE  --> 
 		
 </section>
 {% endblock %}

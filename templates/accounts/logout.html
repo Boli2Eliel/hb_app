@@ -5,7 +5,7 @@
     <h2 class=""> <i class=""></i>Déconnecté!</h2>
     <hr><br/>
     <p>Merci pour le temps que vous avez accordé à ce site aujourd’hui.</p>
-        <a href="{% url 'dashboard' %}">Retourner à la page d'acceuil</a>
+        <a href="{% url 'login' %}">Retourner à la page d'acceuil</a>
             
 </div>
 
@@ -13,20 +13,20 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-   {% if user.is_authenticated %}
+{% if user.is_authenticated %}
 
-    {% else %}
-       /*swal.fire('{{msg}}');*/
-       Swal.fire({
-           position: 'top-end',
-           icon: 'info',
-           title: "Dans l'espoir de vous revoir bientôt",
-           showConfirmButton: false,
-           timer: 5500
-           })
+{% else %}
+    /*swal.fire('{{msg}}');*/
+    Swal.fire({
+        position: 'top-end',
+        icon: 'info',
+        title: "Dans l'espoir de vous revoir bientôt",
+        showConfirmButton: false,
+        timer: 5500
+        })
 
-  
-   {% endif %}
+
+{% endif %}
 </script>
 
 {% endblock content %}

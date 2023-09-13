@@ -23,7 +23,6 @@
                 <th scope="col">Nom</th>
                 <th scope="col">Formule</th>
                 <th scope="col">Prix unitaire</th>
-                <th scope="col">Unité</th>
             </tr>
         </thead>
 
@@ -32,10 +31,10 @@
             {% for product in products %}
                 <tr>
                     <td><a href="{% url 'records:product_details' product.id %}"><i class="fa fa-eye"></i></a></td>
-                    <td>{{ product.name }}</td>
-                    <td>{{ product.formule.name }}</td>
-                    <td>{{ product.price_per_unit }} Fcfa </td>
-                    <td>{{ product.uom.name }}</td>
+                    <td><strong>{{ product.name }}</strong></td>
+                    <td><a href="{% url 'records:formules_list' %}" style="text-decoration:none ;"><span class="badge bg-secondary">{{ product.formule.name }}</span></a></td>
+                    <td>{{ product.price_per_unit }} Fcfa / <a href="#" style="text-decoration:none ;"><span class="badge bg-secondary">{{ product.uom.name }}</span></a></td>
+                    
                 </tr>
             {% endfor %}
         </tbody>

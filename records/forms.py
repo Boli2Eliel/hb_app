@@ -15,3 +15,14 @@ class AddProductForm(forms.ModelForm):
     class Meta:
         model = Product
         exclude = ("updated_at", "created_at",)
+
+class AddFormuleForm(forms.ModelForm):
+
+    name = forms.CharField(required=True, widget=forms.widgets.TextInput(
+        attrs={"placeholder": "Nom de la la formule", "class": "form-control fw-semibold"}), label="")
+
+    # country = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Pays", "class":"form-control fw-semibold"}), label="")
+
+    class Meta:
+        model = Formule
+        exclude = ("updated_at", "created_at",)
