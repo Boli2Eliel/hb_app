@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<section class="product_list bg-light py-4 px-3 rounded">
+
+    <div class="">
+        <h3 class="text-dark "><i class="fas fa-flask "></i> Mise à jour Unité</h3>
+        <hr>
+    </div>
+    <br>
+
+	<form method="POST">
+		{% csrf_token %}
+
+		{{ form|crispy}}
+
+	<br/>
+
+	<a href="{% url 'records:uoms_list' %}" class="btn btn-secondary" style="margin-right: 15px;">Annuler</a>
+
+	<button type="submit" class="btn btn-success">Valider</button>
+	
+
+	</form>
+
+</section>
+
+{% endblock %}

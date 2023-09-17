@@ -5,13 +5,13 @@
     {% include 'includes/topnav.html' %}
     <hr>
     <div>
-        <h3 class=""><i class="fas fa-flask text-success"></i> Formules</h3>
+        <h3 class=""><i class="fa fa-store text-success"></i> Points de vente</h3>
         <hr>
-        <a href="{% url 'records:add_formule' %}" class="ml-2 mt-6 btn btn-secondary">Nouvelle formule</a> 
+        <a href="{% url 'sales:add_sales_point' %}" class="ml-2 mt-6 btn btn-secondary">Nouveau point de vente</a> 
     </div>
     <br>
 
-    {% if not formules %}
+    {% if not sales_points %}
     <div class="" style="background-color: blanchedalmond;">
         There isn't any record in this database
     </div><br>
@@ -19,20 +19,28 @@
     <table class="table table-striped table-hover table-bordered" style="font-size: 13px;">
         <thead class="table-dark">
             <tr>
-                <th scope="col">Formule</th>
-                <th scope="col">Description</th>
-                <th scope="col">Crée le</th>
+                <th scope="col">Point de vente</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Email</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">BP</th>
+                <th scope="col">Ville</th>
+                <th scope="col">Pays</th>
                 <th scope="col"></th>
             </tr>
         </thead>
 
         <tbody>
 
-            {% for formule in formules %}
+            {% for sales_point in sales_points %}
                 <tr>
-                    <td><a href="{% url 'records:update_formule' formule.id %}" class="fw-bold " style="text-decoration:none;">{{ formule.name }}</a></td>
-                    <td>{{ formule.description }}</td>
-                    <td>{{ formule.created_at }}</td>
+                    <td><a href="{% url 'sales:update_sales_point' sales_point.id %}" class="fw-bold " style="text-decoration:none;">{{ sales_point.name}}</a></td>
+                    <td>{{ sales_point.address }}</td>
+                    <td>{{ sales_point.email }}</td>
+                    <td>{{ sales_point.phone }}</td>
+                    <td>{{ sales_point.zipcode }}</td>
+                    <td>{{ sales_point.city }}</td>
+                    <td>{{ sales_point.country }}</td>
                     <td>
                         <a class="btn btn-danger btn-sm ml-1" href="#"><i class="fas fa-trash-alt" data-toggle="modal" data-target="#deleteModal" title=""></i></a>
                     </td>
@@ -59,7 +67,7 @@
                     <div class="modal-footer">
                     
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Annuler</button>
-                    <a  href="{% url 'records:delete_formule' formule.id %}" type="button" class="btn btn-outline-danger btn-sm">Confirmer</a>
+                    <a  href="{% url 'sales:delete_sales_point' sales_point.id %}" type="button" class="btn btn-outline-danger btn-sm">Confirmer</a>
                     
                     </div>
                 </div>

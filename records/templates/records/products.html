@@ -3,11 +3,14 @@
 {% block title %} HBMS | Produits {% endblock%}
 
 {% block content %}
+
 <section class="product_list bg-light py-4 px-3 rounded">
+    {% include 'includes/topnav.html' %}
+    <hr>
     <div class="">
-        <h3 class="text-dark "><i class="zmdi zmdi-assignment zmdi-hc-fw "></i> Produits HB</h3>
+        <h3 class="text-dark "><i class="zmdi zmdi-assignment zmdi-hc-fw  text-success"></i> Produits HB</h3>
         <hr>
-        <a href="{% url 'records:add_product' %}" class="ml-2 mt-6 btn btn-primary">Ajout produit</a>
+        <a href="{% url 'records:add_product' %}" class="ml-2 mt-6 btn btn-secondary">Ajout produit</a>
     </div>
     <br>
 
@@ -33,7 +36,7 @@
                     <td><a href="{% url 'records:product_details' product.id %}"><i class="fa fa-eye"></i></a></td>
                     <td><strong>{{ product.name }}</strong></td>
                     <td><a href="{% url 'records:formules_list' %}" style="text-decoration:none ;"><span class="badge bg-secondary">{{ product.formule.name }}</span></a></td>
-                    <td>{{ product.price_per_unit }} Fcfa / <a href="#" style="text-decoration:none ;"><span class="badge bg-secondary">{{ product.uom.name }}</span></a></td>
+                    <td>{{ product.price_per_unit }} Fcfa / <a href="{% url 'records:uoms_list' %}" style="text-decoration:none ;"><span class="badge bg-secondary">{{ product.uom.name }}</span></a></td>
                     
                 </tr>
             {% endfor %}

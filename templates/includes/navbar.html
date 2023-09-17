@@ -1,7 +1,7 @@
 <!-- Navbar-->
 {% load static %}
 
-<nav class="navbar navbar-expand-lg  mb-5" style="background-color: rgba(205, 102, 18, 0.5);">
+<nav class="navbar navbar-expand-lg  mb-3" style="background-color: rgba(205, 102, 18, 0.5);">
   <div class="container">
     <a class="navbar-brand text-white"  href="{% url 'records:home' %}">
       <img src="{% static 'img/HB_logo_Négatif.png' %}" alt="Healthy Baobab" style="width: 100px; margin-bottom:0px; margin-right:50px;" />
@@ -18,7 +18,7 @@
       {% if user.is_authenticated %}
         
         <li class="nav-item ">
-          <a class="nav-link text-light" href="{% url 'records:records' %}" style="margin-right: 8px;" title="List of products"><i class="zmdi zmdi-assignment zmdi-hc-fw text-primary" title="List of products"></i> Records</a>
+          <a class="nav-link text-light" href="{% url 'records:products_list' %}" style="margin-right: 8px;" title="List of products"><i class="zmdi zmdi-assignment zmdi-hc-fw text-primary" title="List of products"></i> Records</a>
         </li>
 
         <li class="nav-item ">
@@ -26,7 +26,7 @@
         </li>
 
         <li class="nav-item active">
-          <a class="nav-link text-white"  href="{% url 'accounts' %}"><i class="fas fa-users" title="Gestion des utilisateurs"></i><span
+          <a class="nav-link text-white"  href="{% url 'accounts' %}"><i class="fas fa-users-cog" title="Gestion des utilisateurs"></i><span
                   class="sr-only"></span></a>
         </li>
       

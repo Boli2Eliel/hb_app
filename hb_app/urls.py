@@ -10,7 +10,7 @@ urlpatterns = [
     path('', include('authentication.urls')),
     path('', include('records.urls')),
     path('', include('userprofile.urls')),
-    #path('', include('sales.urls')),
+    path('', include('sales.urls')),
 
 
 
